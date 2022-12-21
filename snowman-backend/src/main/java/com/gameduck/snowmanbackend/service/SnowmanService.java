@@ -1,7 +1,6 @@
 package com.gameduck.snowmanbackend.service;
 
-import java.util.List;
-import java.util.stream.Collectors;
+import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -9,7 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.gameduck.snowmanbackend.config.repository.UserRepository;
 import com.gameduck.snowmanbackend.domain.Snowman;
 import com.gameduck.snowmanbackend.domain.User;
-import com.gameduck.snowmanbackend.dto.SnowmanAllUserResponseDto;
+import com.gameduck.snowmanbackend.dto.SnowmanAllResponseDto;
 import com.gameduck.snowmanbackend.dto.SnowmanSaveRequestDto;
 import com.gameduck.snowmanbackend.repository.SnowmanRepository;
 
@@ -34,12 +33,10 @@ public class SnowmanService {
 	}
 
 	//조회
-	public List<SnowmanAllUserResponseDto> findUserAllSnowmans(String email) {
+	public SnowmanAllResponseDto findUserAllSnowmans(String email) {
+		Optional<User> byEmail = userRepository.findByEmail(email);
+		return new SnowmanAllResponseDto(byEmail);
 
-		return snowmanRepository.findAllByUserEmail(email)
-			.stream()
-			.map(SnowmanAllUserResponseDto::new)
-			.collect(Collectors.toList());
 	}
 
 }

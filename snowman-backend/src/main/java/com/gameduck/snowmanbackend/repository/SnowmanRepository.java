@@ -10,7 +10,8 @@ import com.gameduck.snowmanbackend.domain.Snowman;
 
 public interface SnowmanRepository extends JpaRepository<Snowman, Long> {
 
-
 	List<Snowman> findAllByUserEmail(String email);
+
+	Snowman findByUserEmail(String email);
 
 }
