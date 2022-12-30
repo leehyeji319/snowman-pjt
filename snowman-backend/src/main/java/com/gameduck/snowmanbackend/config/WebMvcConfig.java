@@ -10,7 +10,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
 	@Override
 	public void addCorsMappings(CorsRegistry registry) {
 		registry.addMapping("/**")
-			.allowedOrigins("*", "https://web-snowman-20z52flc2u4w7q.gksl2.cloudtype.app/")
+			.allowedOrigins("*", "https://web-snowman-20z52flc2u4w7q.gksl2.cloudtype.app")
 			.allowedMethods("*");
 	}
 }
