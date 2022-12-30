@@ -99,13 +99,14 @@ export default function MainGarden(props) {
             />
           </Santa>
           <Snow></Snow>
-
+          <BtnWrap>
           <DesignBtn className="loginBtn" onClick={linkLogin}>
             로그인하러가기
           </DesignBtn>
           <DesignBtn className="registerBtn" onClick={linkRegister}>
             회원가입하기
           </DesignBtn>
+          </BtnWrap>
         </Garden>
       </Main>
     </AllContainer>
@@ -209,7 +210,7 @@ const MainGardenText = styled.div`
     font-size: 3.5rem;
     text-transform: uppercase;
     text-align: center;
-    animation: main-text-animation 0.5s ease-in-out forwards;
+    animation: main-text-animation 1s ease-in-out forwards;
     font-weight: 600;
     color: white;
     overflow: hidden;
@@ -227,7 +228,7 @@ const MainGardenText = styled.div`
     position: relative;
     opacity: 0;
     text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
-    animation: word-animation 0.5s ease-out 0.3s forwards;
+    animation: word-animation 0.5s ease-out 1s forwards;
   }
 
   @keyframes main-text-animation {
@@ -252,29 +253,41 @@ const MainGardenText = styled.div`
 `;
 
 const DesignBtn = styled.div`
-  position: absolute;
   width: 70%;
-  bottom: 3vh;
   font-size: 1.5rem;
   background-color: #ce4545;
   border-radius: 5px;
-
   padding: 0.6rem 0 0.6rem 0;
   text-align: center;
-  left: 15%;
 
-  &.loginBtn {
-    bottom: 9vh;
-  }
-  &.registerBtn {
-    background-color: #527c63;
-  }
   &:hover {
     color: white;
     background-color: rgba(180, 40, 40, 1);
     cursor: pointer;
   }
-  &.registerBtn:hover {
+
+`;
+const BtnWrap = styled.div`
+  position: absolute;
+  display:flex;
+  flex-direction: column;
+
+  width: 90%;
+  bottom: 3vh;
+  left: 50%;
+  transform: translate(-50%,0);
+
+  & .loginBtn {
+    position: static;
+    margin: 0 auto 10px;
+  }
+
+  & .registerBtn {
+    background-color: #527c63;
+    position: static;
+    margin: 0 auto;
+  }
+  & .registerBtn:hover {
     background-color: #375242;
   }
 `;

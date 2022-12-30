@@ -8,6 +8,7 @@ import { GiAnticlockwiseRotation } from 'react-icons/gi';
 import AllContainer from '../../components/AllContainer';
 import BugerModal from '../SnowmanGarden/BugerModal';
 import '../../styles/Paging.css';
+import { API } from '../../config';
 
 export default function ReadingLetter() {
   const navigate = useNavigate();
@@ -71,7 +72,7 @@ export default function ReadingLetter() {
       async function fetchData() {
         if (currentUser != null) {
           axios
-            .get(`http://localhost:8080/api/snowmans/${gardenEmail}`)
+            .get(API.SNOWMANPOST+`/${gardenEmail}`)
             .then((response) => {
               setData(response.data.snowmans);
               setNickname(response.data.nickname);
