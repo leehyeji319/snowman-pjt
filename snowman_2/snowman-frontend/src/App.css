@@ -1,0 +1,28 @@
+@font-face {
+  font-family: 'bitbit';
+  src: url('../public/fonts/DNFBitBitOTF.otf') format('truetype'),
+    url('../public/fonts/DNFBitBitTTF.ttf') format('woff');
+}
+
+@font-face {
+  font-family: 'Pretendard-Regular';
+  src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff')
+    format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+#App {
+  font-family: 'bitbit';
+}
+
+button {
+  font-family: 'bitbit';
+  font-size: 1rem;
+}
+
+textarea,
+input {
+  font-family: 'Pretendard-Regular';
+  font-size: 1rem;
+}

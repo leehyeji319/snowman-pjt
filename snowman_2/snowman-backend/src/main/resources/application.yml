@@ -1,0 +1,45 @@
+# server:
+#   port: 8080
+#   servlet:
+#     context-path: /
+#     encoding:
+#       charset: utf-8
+#       enabled: true
+
+spring:
+  datasource:
+    url: jdbc:mariadb://${DB_HOST}:${DB_PORT}/gameducksnowman?characterEncoding=UTF-8&serverTimezone=UTC
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+    driver-class-name: org.mariadb.jdbc.Driver
+
+  output.ansi.enabled: always
+
+  jpa:
+    hibernate:
+      ddl-auto: update # (1) ??? ?? ??
+      use-new-id-generator-mappings: false
+    show-sql: false # (2) SQL ?? ??
+    properties:
+      hibernate:
+        format_sql: true # (3) SQL pretty print
+        dialect: org.hibernate.dialect.MariaDB103Dialect
+
+  jackson:
+    serialization:
+      write-dates-as-timestamps: false
+    time-zome: Asia/Seoul
+
+jwt:
+  secret: n0syh2pcj1W9hGmeXsEFrfSiSqh3BE8ZOV4HOkAM2yFpFSQ9E3pWV4TQCgwvAmYaTveCepecwcZpBbFFdjfakskejrlfrpgodigksmsrjswlcka
+  #  jwtExpirationInMs: 604800000
+  #  jwtRefreshExpirationInMs: 86400000
+#   servlet:
+#     multipart:
+#       enabled: true
+#       max-file-size: 20MB
+#       max-request-size: 20MB
+
+# logging.level:
+#   org.hibernate.SQL: debug
+#   org.hibernate.type: trace
